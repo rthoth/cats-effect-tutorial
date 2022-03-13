@@ -16,7 +16,7 @@ object App extends IOApp {
           IO.raiseError(new IllegalArgumentException("You should to inform just two files, an source and a target!"))
       }
 
-      count <- copy(tuple._1, tuple._2)
+      count <- copy[IO](tuple._1, tuple._2)
       _ <- IO.println(s"$count bytes has been copied from ${tuple._1.getCanonicalPath} to ${tuple._2.getCanonicalPath}.")
     } yield {
       ExitCode.Success
